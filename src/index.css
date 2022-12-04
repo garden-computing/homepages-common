@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  font-size: 1rem;
+
+}
+
+@media screen and (min-width: 1024px) {
+  html {
+      font-size: clamp(0.95rem, 0.7038461538461536rem + 0.38461538461538497vw, 1.05rem);
+  }
+}
