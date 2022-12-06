@@ -37,7 +37,7 @@ export function Em(props: { children: JSX.Element }) {
 }
 
 export function MiniStory(props: {
-    title: JSX.Element;
+    title: string;
     children: JSX.Element;
 }) {
     return (
