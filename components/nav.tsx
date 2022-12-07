@@ -1,4 +1,5 @@
 import { JSX } from "solid-js";
+import { A } from 'solid-start';
 
 export function NavContainer(props: { children: JSX.Element }) {
     return (
@@ -8,14 +9,16 @@ export function NavContainer(props: { children: JSX.Element }) {
     );
 }
 
-export function HomeLogo(props: { src: string; class?: string }) {
+export function HomeLogo(props: { href: string, src: string; class?: string }) {
     return (
-        <img
-            src={props.src}
-            loading="lazy"
-            alt=""
-            class={`mr-4 ${props.class || ""}`}
-        />
+        <A href={props.href} inactiveClass="hover:bg-stone-100">
+            <img
+                src={props.src}
+                loading="lazy"
+                alt=""
+                class={`mr-4 ${props.class || ""}`}
+            />
+        </A>
     );
 }
 
@@ -29,18 +32,16 @@ export function NavLink(props: {
     active?: boolean;
 }) {
     return (
-        <a
+        <A
             href={props.href}
             class={`rounded px-5 py-1  ${largerVerticallyClickable} ${
                 props.class || ""
             }`}
-            classList={{
-                "text-gray-500 hover:text-black hover:bg-stone-100": !props.active,
-                "text-black before-content[>]": props.active,
-            }}
+            inactiveClass="text-gray-500 hover:text-black hover:bg-stone-100"
+            activeClass="text-black font-semibold"
         >
             {props.children}
-        </a>
+        </A>
     );
 }
 
