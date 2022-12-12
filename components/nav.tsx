@@ -11,7 +11,7 @@ export function NavContainer(props: { children: JSX.Element }) {
 
 export function HomeLogo(props: { href: string, src: string; class?: string }) {
     return (
-        <A href={props.href} inactiveClass="hover:bg-stone-100">
+        <A href={props.href} inactiveClass="hover:bg-stone-100 transition hover:transition-none">
             <img
                 src={props.src}
                 loading="lazy"
@@ -23,7 +23,7 @@ export function HomeLogo(props: { href: string, src: string; class?: string }) {
 }
 
 const largerVerticallyClickable =
-    "relative before:block before:absolute before:inset-x-0 before:-inset-y-4";
+    "relative after:block after:absolute after:inset-x-0 after:-inset-y-4";
 
 export function NavLink(props: {
     href: string;
@@ -37,7 +37,7 @@ export function NavLink(props: {
             class={`rounded px-5 py-1  ${largerVerticallyClickable} ${
                 props.class || ""
             }`}
-            inactiveClass="text-gray-500 hover:text-black hover:bg-stone-100"
+            inactiveClass="text-gray-500 hover:text-black hover:bg-stone-100 transition hover:transition-none"
             activeClass="text-black font-semibold"
         >
             {props.children}
@@ -53,7 +53,7 @@ export function SideNavLink(props: {
     return (
         <a
             href={props.href}
-            class={`block px-2 py-1 rounded text-gray-500 hover:text-black hover:bg-stone-100 ${
+            class={`block px-2 py-1 rounded text-gray-500 hover:text-black hover:bg-stone-100 transition hover:transition-none ${
                 props.class || ""
             }`}
         >
@@ -70,7 +70,7 @@ export function NavButton(props: {
     return (
         <a
             href={props.href}
-            class={`px-5 py-1 border rounded border-gray-600 text-gray-600 hover:text-black hover:bg-stone-200 ${largerVerticallyClickable} ${
+            class={`px-5 py-1 border rounded border-gray-600 text-gray-600 hover:text-black hover:bg-stone-200 transition hover:transition-none ${largerVerticallyClickable} ${
                 props.class || ""
             }`}
         >
